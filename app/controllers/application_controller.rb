@@ -26,6 +26,10 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  post '/food' do
+    "My name is #{params[:name]}, and I love #{params[:favorite_food]}"
+  end
+
   get '/teams' do
     erb :teams
   end

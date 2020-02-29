@@ -11,4 +11,12 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/teams' do
+    erb :teams
+  end
+
+  get "/people" do
+    erb :people
+  end
+
 end

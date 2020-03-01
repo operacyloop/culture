@@ -1,13 +1,12 @@
 <div class="container">
-  <header><img src="images/culmae.png" alt="Culmae logo" width="150" height="150" class="img-responsive main-image"></header>
+  <header><center><img src="images/culmae.png" alt="Culmae logo" width="150" height="150" class="img-responsive main-image"></header>
   <div class="col-md-18 col-md-offset-1">
   <p><small>Powered by:</small></p>
     <h1><img src="images/operacy-loop.png" alt="Operacy Loop logo" width="45" height="45"/> The Best Culture Matching Software in the World</h1>
       <p>This site is where we match people to teams and teams to people. No other software in the world does that. We do. Get used to it. 
       
-
     <!-- Insert Your Form Below -->
-<form method="POST" action="/food">
+<form method="POST" action="/people">
   <p>Name of Person: <input type="text" name="name"></p>
   <p></p>
   <p align="center">Please rate the following from 0 to 10 -- 0 being worst and 10 being best -- in the following areas.</p>
@@ -102,28 +101,10 @@
   </tr>
   
 </table>
-  <%# <p>Timeliness: <input type="text" name="favorite_food"></p> %>
-  <%# <p>Self-reliance: <input type="text" name="favorite_food2"></p> %>
-  <%# <p>Reliability: <input type="text" name="favorite_food3"></p> %>
-  <%# <p>Honesty: <input type="text" name="favorite_food4"></p>
-  <p>Diplomacy: <input type="text" name="favorite_food5"></p>
-  <p>Work Ethic: <input type="text" name="favorite_food6"></p>
-  <p>Ability to work 'Smarter-not-harder': <input type="text" name="favorite_food7"></p>
-  <p>Charm: <input type="text" name="favorite_food8"></p>
-  <p>Willingness to help others: <input type="text" name="favorite_food9"></p>
-  <p>Gets along with others: <input type="text" name="favorite_food10"></p>
-  <p>Sense of humor: <input type="text" name="favorite_food11"></p>
-  <p>Fun to be around: <input type="text" name="favorite_food12"></p>
-  <p>Trustworthy: <input type="text" name="favorite_food13"></p>
-  <p>Considerate of others: <input type="text" name="favorite_food14"></p>
-  <p>Ability to confront appropriately: <input type="text" name="favorite_food15"></p>
-  <p>Self-confidence: <input type="text" name="favorite_food16"></p>
-  <p>Acceptance of others dispite their differences: <input type="text" name="favorite_food17"></p>
-  <p>Willingness to take responsibility for own actions: <input type="text" name="favorite_food18"></p>
-  <p>Self-understanding: <input type="text" name="favorite_food19"></p>
-  <p>Willingness to improve themselves: <input type="text" name="favorite_food20"></p> %>
   <p></p>
   <p> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="SUBMIT" style="height: 50px; width: 150px; left: 250; top: 250; border: 1px solid"> </p>
+
+<p> Here are the cultures <%=@posts%></p>
 
 </form>
  <!-- End of Form Above -->

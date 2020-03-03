@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
 
   post '/sessions' do 
     #login a user with this email
-    login(params[:email]) #was>> #session[:email] = params[:email]
-    redirect '/posts'
+    # PROBLEMS WITH NEXT LINE >>> 
+    login(params[:email], params[:password]) #was>> #session[:email] = params[:email]
+      redirect '/posts'
   end
 
   get '/logout' do 

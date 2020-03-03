@@ -1,6 +1,8 @@
-<h1>Login</h1>
+<h1>Signup</h1>
 
-<form action="/sessions" method="POST">
+<%= "Must include email and password" if @user && @user.errors.any? %>
+
+<form action="/users.html" method="POST">
   <p>
     <label for="email">Email:</label>
     <input type="text" name="email" id="email" />

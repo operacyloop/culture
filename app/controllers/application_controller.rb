@@ -12,12 +12,26 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def logged_in?
-      !!session[:email]
+      #!!session[:email]
+      !!current_user 
     end
 
-    def login(email)
-      if user = User.find_by(:email => email)
-        session[:email] = user.email
+    def current_user 
+      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
+    end
+
+    post '/users.html' do
+      # "Hello World"
+      erb :"users/new.html"
+    end
+
+    def login(email, password)
+       # check if a user with email / password
+      # if so, set the session
+        # need to go over agsain
+        # ISSUES HERE >>> FIX THIS NEXT LINE
+      if user = User.find_by(:email => email) && user.authenticate(password)
+        session[:email] = user.email 
       else 
         redirect '/login'
       end  
@@ -27,6 +41,12 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
   end
+
+  # class ApplicationController
+  #   post '/users.html' do
+  #     "Hello World"
+  #   end
+  # end
 
   # get "/" do
   #   # session[:greeting] = "Hello World"

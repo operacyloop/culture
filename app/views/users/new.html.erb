@@ -1,18 +1,43 @@
+<div class="container">
+  <header><center><img src="images/culmae.png" alt="Culmae logo" width="150" height="150" class="img-responsive main-image"></header>
+  <div class="col-md-18 col-md-offset-1">
+  <p><small>Powered by:</small></p>
+    <h1><img src="images/operacy-loop.png" alt="Operacy Loop logo" width="45" height="45"/> Culture Matching Software</h1>
+      <p>This site is where we match people to teams and teams to people. </p>
+      
+<%# START OF SIGNUP FORM  %>
+
 <h1>Signup</h1>
 
 <%= "Must include email and password" if @user && @user.errors.any? %>
 
-<form action="/users.html" method="POST">
-  <p>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email" />
-  </p> 
-
-  <p>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" />
-  </p> 
+<form action="/users" method="POST">
+  <table>
+  <tr>
+    <td><label for="email">Email:</label></td>
+    <td><input type="text" name="email" id="email" /></td>
+  </tr> 
+  <tr>
+    <td><label for="password">Password:</label></td>
+    <td><input type="password" name="password" id="password" /></td>
+  </tr> 
+  </table>
 
   <input type="submit" />
 
   </form>
+
+<%# END OF SIGNUP FORM %>
+
+    <div class="sidebar">
+      <h3>Environment</h3>
+      <ul>
+        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

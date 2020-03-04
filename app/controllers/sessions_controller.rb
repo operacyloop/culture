@@ -16,4 +16,8 @@ class SessionsController < ApplicationController
     redirect '/posts'
   end 
 
+  get '/signup' do
+     erb :"users/new.html"
+  end 
+
 end

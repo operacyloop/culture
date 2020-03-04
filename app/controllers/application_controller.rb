@@ -42,7 +42,8 @@ class ApplicationController < Sinatra::Base
       # if so, set the session
         # need to go over agsain
         # ISSUES HERE >>> FIX THIS NEXT LINE
-      if user = User.find_by(:email => email) && user.authenticate(password)
+      
+      if (user = User.find_by(:email => email)) && user.authenticate(password)
         session[:email] = user.email 
       else 
         redirect '/login'

@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   #Tthis route should send us to edit.erb which will render an edit form
   get '/posts/:id/edit' do 
-    "Hello World"
+    @post = Post.find_by(id: params[:id])
     # Checking if they are logged in
     # if !logged_in? 
     #   redirect "/login" # Redirecting if not

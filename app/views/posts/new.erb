@@ -9,18 +9,26 @@
 <h2>Create a New Profile for the Person You are going to Rate</h2>
 
 <form class="" action="/posts" method="post"> 
-  <label for="title">Individual Name:</label>
-  <input type="text" name="title" value="Fill in Ratee's Name">
+  <table>
+  <tr>
+    <td><label for="title">Individual Name:</label></td>
+    <td><input type="text" name="title" placeholder="Fill in Ratee's Name"></td>
+    <td></td>
+  </tr>
+    
+  <tr>
+  <td><label for="content">More information:</label></td>
+  <td><input type="string" name="content" placeholder="Other details"></td>
   <br><br>
-
-  <label for="content">More information:</label>
-  <input type="string" name="content" value="Other details">
+  </tr>
+  
+  <tr>
+  <td><label for="Tact Rating">How tactful?:</label></td>
+  <td><input type="integer" name="tact_rating" placeholder="Rate from 1 to 10"></td>
   <br><br>
+  </tr>
 
-  <label for="Tact Rating">How tactful?:</label>
-  <input type="integer" name="tact_rating" value="Rate from 1 to 10">
-  <br><br>
-
+  </table>
   <input type="submit" name="" value="Create New Profile">
  </form> 
 

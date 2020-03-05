@@ -31,6 +31,10 @@ class PostsController < ApplicationController
     erb :'posts/new'
   end
 
+  post '/posts/posts/show' do
+    erb :'posts/show'
+  end
+
   # get 'posts/:id' do ...
 
   get '/posts/:id/edit' do 

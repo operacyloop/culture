@@ -3,13 +3,14 @@ class PostsController < ApplicationController
   get '/posts' do 
     # "A list of publicly available posts"
     # "You are logged in as #{session[:email]}"
-    erb :"posts/index.html"
+    erb :'posts/index.html'
   end
 
   # post -> has_many :tags
   # tag -> 
 
-  get '/posts/new' do 
+
+  get '/posts' do 
     # Checking if they are logged in
     if !logged_in?
       
@@ -17,6 +18,17 @@ class PostsController < ApplicationController
     else 
       "A new post form" #rendering if they are
     end
+  end
+
+  post '/posts/new' do 
+  end
+
+  get '/posts/new' do
+    erb :'posts/new'
+  end
+
+  post '/posts/posts' do
+    erb :'posts/new'
   end
 
   # get 'posts/:id' do ...

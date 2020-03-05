@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
       redirect '/posts'
   end
 
+  get '/show' do
+    erb :'posts/show'
+  end
+
+
   get '/logout' do 
     logout!
     redirect '/posts'

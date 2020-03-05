@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     erb :"users/new.html"
   end 
 
+  get '/users/new.html' do
+    erb :"users/new.html"
+  end
+
   post '/users' do
     @user = User.new
     @user.email = params[:email]

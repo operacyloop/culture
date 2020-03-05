@@ -13,6 +13,15 @@ class ApplicationController < Sinatra::Base
 
 # end
 
+# Sinatra told me to add here
+
+patch '/posts/' do
+  "Hello World (located in application_controller.rb)"
+  #1. find the entry
+  #2. update the entry
+  #3. redirect to show page
+end
+
    get '/' do
 #     session[:greeting] = "Hello World"
 #     response.set_cookie 'credit_amount', '100'
@@ -26,7 +35,7 @@ class ApplicationController < Sinatra::Base
 
    helpers do 
 
-     def logged_in?
+    def logged_in?
      #!!session[:email]
       !!current_user 
     end

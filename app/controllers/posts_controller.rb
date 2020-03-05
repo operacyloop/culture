@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     # first, make sure they're signed in. No? Send 'em back to log in page.
     #  nd
     # if we save correctly, then...
+    
     post = Post.new(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
     if post.save
       redirect "/posts/#{post.id}"
@@ -28,13 +29,15 @@ class PostsController < ApplicationController
   end 
 
   get '/posts/:id' do
-    @post = Post.find_by(id: params[:id])
+    set_post_entry
     erb :'posts/show'
   end 
 
+
   #Tthis route should send us to edit.erb which will render an edit form
   get '/posts/:id/edit' do 
-    @post = Post.find_by(id: params[:id])
+    set_post_entry
+    erb :'/posts/edit'
     # Checking if they are logged in
     # if !logged_in? 
     #   redirect "/login" # Redirecting if not
@@ -46,6 +49,26 @@ class PostsController < ApplicationController
     #     redirect '/posts'
     #   end 
     # end 
-    erb :'/posts/edit'
+   
   end
 end
+
+patch '/posts/:id' do
+  #erb :'posts/new'
+  "Hello World EDIT???"
+end
+
+#Sinatra told me to add
+# patch '/posts/' do
+#   "Hello World POST"
+# end
+
+# patch '/posts/' do
+#   "Hello World "
+# end
+
+private
+
+def set_post_entry
+  @post = Post.find_by(id: params[:id])
+end 

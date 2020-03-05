@@ -32,17 +32,20 @@ class PostsController < ApplicationController
     erb :'posts/show'
   end 
 
+  #Tthis route should send us to edit.erb which will render an edit form
   get '/posts/:id/edit' do 
+    "Hello World"
     # Checking if they are logged in
-    if !logged_in? 
-      redirect "/login" # Redirecting if not
-    else  
-      #how do I find the post that only the author is allowed to edit
-      if post = current_user.posts.find_by(params[:id])
-        "An edit post form #{current_user.id} is editing #{post.id}" # rendering if they are
-      else
-        redirect '/posts'
-      end 
-    end 
+    # if !logged_in? 
+    #   redirect "/login" # Redirecting if not
+    # else  
+    #   #how do I find the post that only the author is allowed to edit
+    #   if post = current_user.posts.find_by(params[:id])
+    #     "An edit post form #{current_user.id} is editing #{post.id}" # rendering if they are
+    #   else
+    #     redirect '/posts'
+    #   end 
+    # end 
+    erb :'/posts/edit'
   end
 end

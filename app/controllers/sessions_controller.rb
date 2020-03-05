@@ -15,10 +15,9 @@ class SessionsController < ApplicationController
     erb :'posts/show'
   end
 
-
   get '/logout' do 
     logout!
-    redirect '/posts'
+    redirect '/'
   end 
 
   get '/signup' do

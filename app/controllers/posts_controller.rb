@@ -15,6 +15,8 @@ class PostsController < ApplicationController
   end
 
   post '/posts' do
+    # first, make sure they're signed in. No? Send 'em back to log in page.
+    #  nd
     # if we save correctly, then...
     post = Post.new(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
     if post.save

@@ -1,6 +1,7 @@
-<h1> This is the SHOW page </h1>
-<p> We are looking at the ratings of <%= @post.title %></p>
+<h1> Profile Summary </h1>
 <br><br>
-<%= @post.content %>
-<br><br>
-<%= @post.tact_rating %>
+<p> We are looking at the ratings of <b><%= @post.title %></b></p>
+<br>
+<p> Here is more information on that person: <b><%= @post.content %></p></b>
+<br>
+<p> Here is this person's rating (1-10): <b><%= @post.tact_rating %></p></b>

@@ -1,24 +1,6 @@
-
-<html>
-    <head>
-        <title>Profile Pages</title>
-    </head>
-    <body>
-
-<div class="container">
-  <header><center><img src="images/culmae.png" alt="Culmae logo" width="150" height="150" class="img-responsive main-image"></header>
-  <div class="col-md-18 col-md-offset-1">
-  <p><small>Powered by:</small></p>
-    <h1><img src="images/operacy-loop.png" alt="Operacy Loop logo" width="45" height="45"/> Culture Matching Software</h1>
-      <p>This site is where we match people to teams and teams to people. </p>
-      
-
-<h2>Compilation of Your Profile Pages of Rated Individuals</h2>
-<%# <h2><%= @user.name %>'s Compilation of Profile Pages'</h2> %>
-<h3>Email: </h3>
-<h4><%= session[:email] %></h4>
-
-<p> <%= session[:password] %> </p>
-
-    </body>
-</html>
+<h1> This is the SHOW page </h1>
+<p> We are looking at the ratings of <%= @post.title %></p>
+<br><br>
+<%= @post.content %>
+<br><br>
+<%= @post.tact_rating %>

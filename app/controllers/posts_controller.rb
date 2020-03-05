@@ -1,41 +1,34 @@
 class PostsController < ApplicationController
 
   get '/posts' do 
-    # "A list of publicly available posts"
-    # "You are logged in as #{session[:email]}"
-    erb :'posts/index.html'
-  end
-
-  # post -> has_many :tags
-  # tag -> 
-
-
-  get '/posts' do 
     # Checking if they are logged in
     if !logged_in?
       
       redirect "/login" # Redirecting if they aren't 
     else 
-      "A new post form" #rendering if they are
+      erb :'posts/index.html'
     end
-  end
-
-  post '/posts/new' do 
   end
 
   get '/posts/new' do
     erb :'posts/new'
   end
 
-  post '/posts/posts' do
-    erb :'posts/new'
-  end
+  post '/posts' do
+    # if we save correctly, then...
+    post = Post.new(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
+    if post.save
+      redirect "/posts/#{post.id}"
+    else 
+    # if the post doesn't save...  
+      erb :'posts/new'
+    end
+  end 
 
-  post '/posts/posts/show' do
+  get '/posts/:id' do
+    @post = Post.find_by(id: params[:id])
     erb :'posts/show'
-  end
-
-  # get 'posts/:id' do ...
+  end 
 
   get '/posts/:id/edit' do 
     # Checking if they are logged in
@@ -50,8 +43,4 @@ class PostsController < ApplicationController
       end 
     end 
   end
-  
-
-    
-  
 end

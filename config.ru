@@ -1,4 +1,3 @@
-
 require './config/environment' # or require relative
 
 if ActiveRecord::Migrator.needs_migration?
@@ -6,7 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride 
-
 run ApplicationController
 use SessionsController
 use PostsController

@@ -9,7 +9,6 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-#gem 'bcrypt'
 gem 'tux'
 gem 'bigdecimal', '1.4.2'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
@@ -19,5 +18,4 @@ group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
-  # gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end

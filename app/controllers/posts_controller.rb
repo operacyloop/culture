@@ -7,19 +7,28 @@ class PostsController < ApplicationController
     set_post_entry
     #2. update the entry
     #@post_entry.update(params)
-    @post.update(params)
+    if logged_in?
+      if @post.user == current_user && params[:content] != ""
+        @post.update(content: params[:content])
+        redirect "/post/#{post.id}"
+      else  
+        redirect "users/#{current_user.id}"
+      end 
+      @post.update(params)
+    end
     #3. redirect to show page
     #redirect "/post/#{@post_entry.id}"
   end  
 
-  get '/index.html' do
-    "Hello world - get '/index.html' do"
-    #erb :'post/index.html'
-  end
+  # get '/index.html' do
+  #   "Hello world - get '/index.html' do"
+  #   #erb :'post/index.html'
+  # end
 
   get '/index' do
-    "Hello world - get '/index' do"
-    #erb :"/post/index"
+    @posts = Post.all
+    #"Hello world - get '/index' do"
+    erb :"/post/index"
   end
   
   get '/posts' do

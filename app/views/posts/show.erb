@@ -7,7 +7,9 @@
 <p> Here is this person's rating (1-10): <b><%= @post.tact_rating %></p></b>
 
 <% if authorized_to_edit?(@post) %>
-  <a href="/posts/<%= @post.id %>/edit">Edit This Profile</a>
-
-Delete Link
+  <a href="/posts/<%= @post.id %>/edit">Edit This Profile</a> 
+  <form class="" action="/posts/<%= post.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete this Entry">
+  </form>
 <% end %>

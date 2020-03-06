@@ -77,6 +77,8 @@ class PostsController < ApplicationController
     end 
   end 
 
+
+
     #erb :'/posts/edit'
     # Checking if they are logged in
     # if !logged_in? 
@@ -101,6 +103,16 @@ end
 # patch '/posts/' do
 #   "Hello World "
 # end
+
+delete '/posts/:id' do 
+  set_post_entry
+  if authorized_to_edit(@post)
+    @post.destroy 
+    redirect '/posts'
+  else
+    redirect '/posts'
+  end
+end 
 
 get '/index.html' do
   "Hello World"

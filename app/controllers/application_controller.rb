@@ -11,11 +11,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-     redirect '/welcome'
+     redirect '/posts'
   end
 
   get '/welcome' do
-    erb :'/welcome'
+    erb :'/posts'
   end
 
   helpers do 

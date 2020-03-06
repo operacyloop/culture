@@ -29,16 +29,21 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
      #!!session[:email]
-      #!!current_user 
+      !!current_user 
       # Because of problems above, changed this to true so 
       # I can work on the rest of the issue in the mean tim
-      true
+      #true
     end
 
     def current_user 
-#       @current_user ||= User.find_by(:email => session[:email]) if session[:email]
-      true
+       #@current_user ||= User.find_by(:email => session[:email]) if session[:email]
+        @current_user ||= User.find_by(id: session[:user_id])
+      #true
     end
+
+    def authorized_to_edit?(post)
+      post.user == current_user 
+    end 
 
 
     def login(email, password)

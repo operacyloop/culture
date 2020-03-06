@@ -65,14 +65,14 @@ class PostsController < ApplicationController
   get '/posts/:id/edit' do 
     set_post_entry
     if logged_in? 
-      if @post.user == current_user
+      if authorized_to_edit?(@post)
         erb :'/post/edit'
       else
         # FIX THIS PLEASE
         "within 'get '/posts/:id/edit' do'"
         #redirect "users/#{current_user.id}" 
       end 
-    else 
+    else  
       redirect '/'
     end 
   end 

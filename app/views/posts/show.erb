@@ -6,7 +6,8 @@
 <br>
 <p> Here is this person's rating (1-10): <b><%= @post.tact_rating %></p></b>
 
-<%# Edit Link %>
-<a href="/posts/<%= @post.id %>/edit">Edit This Profile</a>
+<% if authorized_to_edit?(@post) %>
+  <a href="/posts/<%= @post.id %>/edit">Edit This Profile</a>
 
-<%# Delete Link  %>
+Delete Link
+<% end %>

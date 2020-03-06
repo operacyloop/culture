@@ -1,11 +1,10 @@
-<h1>ALL JOURNAL ENTRIES - This is index.erb. We are viewing the posts</h1>
+<h1>ALL JOURNAL ENTRIES - This is index.erb. We are viewing the posts for all of HR to see.</h1>
 <h4>Show Name</h4>
 <h4>Show Description</h4>
 <h4>Rating</h4> 
 
 <% @posts.each do |post| %>
-  <%= post.created_at %>
-  <h4> <a href="/posts/<%= post.id %>" <%= post.title %> </h4>
-  <%= post.content %>
-  <%= post.tact_rating %>
+  <h4> Date created: <%= post.created_at %> </h4>
+  <h4> Ratee: <a href="/posts/<%= post.id %>"> <%= post.title %> </h4>
+  <h4> Tact rating: <%= post.tact_rating %> </h4>
 <% end %>

@@ -52,13 +52,13 @@ class PostsController < ApplicationController
       redirect "/posts/#{post.id}"
     else 
     # if the post doesn't save...  
-      erb :'posts/new'
+      erb :'/posts/new'
     end
   end 
 
   get '/posts/:id' do
     set_post_entry
-    erb :'posts/show'
+    erb :'/posts/show'
   end 
 
   #This route should send us to edit.erb which will render an edit form

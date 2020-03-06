@@ -2,7 +2,6 @@
 
 class ApplicationController < Sinatra::Base
 
-  
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -11,19 +10,9 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-
-
-  # end
-
- # Sinatra told me to add here   
-
    get '/' do
-     #     session[:greeting] = 'hello world'
-     #     response.set_cookie 'credit_amount', '100'
      redirect '/login'
    end
-
-
 
    helpers do 
 

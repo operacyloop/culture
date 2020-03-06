@@ -9,7 +9,8 @@
 
 <h1>Signup</h1>
 
-<%= "Must include email and password" if @user && @user.errors.any? %>
+
+<%=  @user.errors.full_messages.join if @user && @user.errors.any? %>
 
 <form action="/users" method="POST">
   <table>

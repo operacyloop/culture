@@ -10,11 +10,15 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-   get '/' do
-     redirect '/login'
-   end
+  get '/' do
+     redirect '/welcome'
+  end
 
-   helpers do 
+  get '/welcome' do
+    erb :'/welcome'
+  end
+
+  helpers do 
 
     def logged_in?
       !!current_user 
@@ -31,7 +35,7 @@ class ApplicationController < Sinatra::Base
     def login(email, password)
         # ISSUES HERE >>> FIX THIS NEXT LINE
       if (user = User.find_by(:email => email)) && user.authenticate(password)
-        session[:email] = user.email 
+        session[:user_id] = user.id
       else 
         redirect '/login'
       end  

@@ -1,6 +1,16 @@
 class PostsController < ApplicationController
   
-  
+
+  delete '/posts/:id' do 
+    set_post_entry
+    if authorized_to_edit?(@post)
+      @post.destroy 
+      redirect '/posts'
+    else
+      redirect '/posts'
+    end
+  end
+
   patch '/posts/:id' do
     #"Hello World (located in now in post_controller.rb)"
     #1. find the entry
@@ -8,9 +18,9 @@ class PostsController < ApplicationController
     #2. update the entry
     #@post_entry.update(params)
     if logged_in?
-      if @post.user == current_user && params[:content] != ""
-        @post.update(content: params[:content])
-        redirect "/post/#{post.id}"
+      if @post.user == current_user && params[:content] != "" && params[:title] != "" && params[:title] != ""
+        @post.update(content: params[:content], title: params[:title], tact_rating: params[:tact_rating])
+        redirect "/posts/#{@post.id}"
       else  
         redirect "users/#{current_user.id}"
       end 
@@ -24,15 +34,14 @@ class PostsController < ApplicationController
   #   "Hello world - get '/index.html' do"
   #   #erb :'post/index.html'
   # end
+  
+  get '/posts' do
 
-  get '/index' do
     @posts = Post.all
     #"Hello world - get '/index' do"
     erb :'/posts/index'
-  end
-  
-  get '/posts' do
-    "All da posts: supposed to show all the posts: Hello World"
+
+    # "All da posts: supposed to show all the posts: Hello World"
     #@posts = Post.all 
     #erb :'view/post/index'
   end 
@@ -55,14 +64,18 @@ class PostsController < ApplicationController
     # first, make sure they're signed in. No? Send 'em back to log in page.
     #  nd
     # if we save correctly, then...
-
-    post = Post.new(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
-    if post.save
-      redirect "/posts/#{post.id}"
-    else 
-    # if the post doesn't save...  
+    user = current_user 
+    if params[:title] != "" && params[:content] != "" && params[:tact_rating] != ""
+      post = user.posts.build(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
+      if post.save
+        redirect "/posts/#{post.id}"
+      else 
+      # if the post doesn't save...  
+        erb :'/posts/new'
+      end
+    else  
       erb :'/posts/new'
-    end
+    end 
   end 
 
   get '/posts/:id' do
@@ -75,7 +88,7 @@ class PostsController < ApplicationController
     set_post_entry
     if logged_in? 
       if authorized_to_edit?(@post)
-        erb :'/post/edit'
+        erb :'/posts/edit'
       else
         # FIX THIS PLEASE
         "within 'get '/posts/:id/edit' do'"
@@ -85,7 +98,6 @@ class PostsController < ApplicationController
       redirect '/'
     end 
   end 
-
 
 
     #erb :'/posts/edit'
@@ -113,11 +125,6 @@ end
 #   "Hello World "
 # end
 
-# delete '/posts/:id' do 
-#   "Hello World"
-  # @post = Post.find_by_id(params[:id])
-  # @post.delete
-  # redirect to '/posts'
 
   # set_post_entry
   # if authorized_to_edit(@post)
@@ -127,20 +134,6 @@ end
   #   redirect '/posts'
   # end
 # end 
-
-delete '/posts/28' do
-  "Hello World"
-end
-
-get '/index.html' do
-  "Hello World"
-  #erb :'index.html'
-end
-
-get '/index' do
-  "Hello World"
-  #erb :'index.html'
-end
 
 
 private

@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   get '/index' do
     @posts = Post.all
     #"Hello world - get '/index' do"
-    erb :"/post/index"
+    erb :'/posts/index'
   end
   
   get '/posts' do
@@ -113,15 +113,24 @@ end
 #   "Hello World "
 # end
 
-delete '/posts/:id' do 
-  set_post_entry
-  if authorized_to_edit(@post)
-    @post.destroy 
-    redirect '/posts'
-  else
-    redirect '/posts'
-  end
-end 
+# delete '/posts/:id' do 
+#   "Hello World"
+  # @post = Post.find_by_id(params[:id])
+  # @post.delete
+  # redirect to '/posts'
+
+  # set_post_entry
+  # if authorized_to_edit(@post)
+  #   @post.destroy 
+  #   redirect '/posts'
+  # else
+  #   redirect '/posts'
+  # end
+# end 
+
+delete '/posts/28' do
+  "Hello World"
+end
 
 get '/index.html' do
   "Hello World"

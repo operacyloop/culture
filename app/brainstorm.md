@@ -19,7 +19,7 @@ X Must have user accounts - users must be able to sign up, sign in, and sign out
 >>> ??? Once logged in, a user must have the ability to...
 X create
 X read
-x update
+>>> update
 >>> ? destroy 
 the resource that belongs_to user.
 >>> ??? Ensure that users can edit and delete only their own resources - not resources created by other users.

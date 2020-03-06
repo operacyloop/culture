@@ -1,7 +1,7 @@
 <h2>Edit Profile for the Person You Have Rated</h2>
 
-<form class="" action="/posts/<% @post.id %>" method="post"> 
-  <input type="hidden" name="_method" value="patch">
+<form class="" action="/posts/<%= @post.id %>" method="post"> 
+  <input type="hidden" id="hidden" name="_method" value="patch">
   <table>
   <tr>
     <td><label for="title">Individual Name:</label></td>

@@ -7,13 +7,7 @@ end
 
 use Rack::MethodOverride 
 
-# use Rack::Session::Cookie, :key => 'rack.session',
-#                            :domain => 'foo.com',
-#                            :path => '/',
-#                            :expire_after => 2592000, #Comment lol
-#                            :secret => 'change_me'
-
+run ApplicationController
 use SessionsController
 use PostsController
 use UsersController
-run ApplicationController

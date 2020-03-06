@@ -1,5 +1,16 @@
 class PostsController < ApplicationController
 
+  patch '/posts/:id' do
+    "Hello World (located in now in post_controller.rb)"
+    #1. find the entry
+    #set_post_entry
+    #2. update the entry
+    #@post_entry.update(params)
+    #@post.update(params)
+    #3. redirect to show page
+    #redirect "/post/#{@post_entry.id}"
+  end  
+  
   get '/posts' do 
     # Checking if they are logged in
     if !logged_in?
@@ -18,7 +29,7 @@ class PostsController < ApplicationController
     # first, make sure they're signed in. No? Send 'em back to log in page.
     #  nd
     # if we save correctly, then...
-    
+
     post = Post.new(title: params[:title], content: params[:content], tact_rating: params[:tact_rating])
     if post.save
       redirect "/posts/#{post.id}"
@@ -33,11 +44,23 @@ class PostsController < ApplicationController
     erb :'posts/show'
   end 
 
-
-  #Tthis route should send us to edit.erb which will render an edit form
+  #This route should send us to edit.erb which will render an edit form
   get '/posts/:id/edit' do 
     set_post_entry
-    erb :'/posts/edit'
+    if logged_in? 
+      if @post.user == current_user
+        erb :'/post/edit'
+      else
+        # FIX THIS PLEASE
+        "within 'get '/posts/:id/edit' do'"
+        #redirect "users/#{current_user.id}" 
+      end 
+    else 
+      redirect '/'
+    end 
+  end 
+
+    #erb :'/posts/edit'
     # Checking if they are logged in
     # if !logged_in? 
     #   redirect "/login" # Redirecting if not
@@ -50,12 +73,7 @@ class PostsController < ApplicationController
     #   end 
     # end 
    
-  end
-end
-
-patch '/posts/:id' do
-  #erb :'posts/new'
-  "Hello World EDIT???"
+  #end
 end
 
 #Sinatra told me to add
@@ -72,3 +90,8 @@ private
 def set_post_entry
   @post = Post.find_by(id: params[:id])
 end 
+
+get '/posts' do
+  @posts = post.all
+  erb :index.html
+end

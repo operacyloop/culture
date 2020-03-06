@@ -11,43 +11,35 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
-# end
 
-# Sinatra told me to add here
 
-patch '/posts/' do
-  "Hello World (located in application_controller.rb)"
-  #1. find the entry
-  #2. update the entry
-  #3. redirect to show page
-end
+  # end
+
+ # Sinatra told me to add here   
 
    get '/' do
-#     session[:greeting] = "Hello World"
-#     response.set_cookie 'credit_amount', '100'
+     #     session[:greeting] = 'hello world'
+     #     response.set_cookie 'credit_amount', '100'
      redirect '/login'
    end
 
 
-#   get '/remember' do 
-#     "You have #{request.cookies['credit_amount']} left to something"
-#   end 
 
    helpers do 
 
     def logged_in?
      #!!session[:email]
-      !!current_user 
+      #!!current_user 
+      # Because of problems above, changed this to true so 
+      # I can work on the rest of the issue in the mean tim
+      true
     end
 
-#     def current_user 
+    def current_user 
 #       @current_user ||= User.find_by(:email => session[:email]) if session[:email]
-#     end
+      true
+    end
 
-    # post '/users.html' do
-    #   "Hello World"
-    #   # erb :"views/people"
-    # end
 
     def login(email, password)
        # check if a user with email / password

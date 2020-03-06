@@ -4,4 +4,9 @@
 <h4>Show Description</h4>
 <h4>Rating</h4> 
 
-
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.created_at %>
+  <%= post.content %>
+  <%= post.tact_rating %>
+<% end %>

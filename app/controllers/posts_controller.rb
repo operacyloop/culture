@@ -1,25 +1,42 @@
 class PostsController < ApplicationController
-
+  
+  
   patch '/posts/:id' do
-    "Hello World (located in now in post_controller.rb)"
+    #"Hello World (located in now in post_controller.rb)"
     #1. find the entry
-    #set_post_entry
+    set_post_entry
     #2. update the entry
     #@post_entry.update(params)
-    #@post.update(params)
+    @post.update(params)
     #3. redirect to show page
     #redirect "/post/#{@post_entry.id}"
   end  
-  
-  get '/posts' do 
-    # Checking if they are logged in
-    if !logged_in?
-      
-      redirect "/login" # Redirecting if they aren't 
-    else 
-      erb :'posts/index.html'
-    end
+
+  get '/index.html' do
+    "Hello world - get '/index.html' do"
+    #erb :'post/index.html'
   end
+
+  get '/index' do
+    "Hello world - get '/index' do"
+    #erb :"/post/index"
+  end
+  
+  get '/posts' do
+    "All da posts: supposed to show all the posts: Hello World"
+    #@posts = Post.all 
+    #erb :'view/post/index'
+  end 
+
+  # get '/posts' do 
+  #   # Checking if they are logged in
+  #   if !logged_in?
+      
+  #     redirect "/login" # Redirecting if they aren't 
+  #   else 
+  #     erb :'posts/index.html'
+  #   end
+  # end
 
   get '/posts/new' do
     erb :'posts/new'
@@ -85,6 +102,17 @@ end
 #   "Hello World "
 # end
 
+get '/index.html' do
+  "Hello World"
+  #erb :'index.html'
+end
+
+get '/index' do
+  "Hello World"
+  #erb :'index.html'
+end
+
+
 private
 
 def set_post_entry
@@ -93,5 +121,5 @@ end
 
 get '/posts' do
   @posts = post.all
-  erb :index.html
+  erb :'index.html'
 end
